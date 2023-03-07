@@ -31,20 +31,13 @@ public class User {
 
    public User() {}
 
-   public User(String firstName, String lastName, String email) {
+   public User(String firstName, String lastName, String email,Car car) {
       this.firstName = firstName;
       this.lastName = lastName;
       this.email = email;
-   }
-
-
-   public User (Car car) {
       this.car=car;
    }
-   public Car setCar(Car car) {
-      this.car=car;
-      return car;
-   }
+
    @Override
    public String toString() {
       return "User {" +
