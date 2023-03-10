@@ -38,10 +38,7 @@ public class MainApp {
       userService.add(user4);
 
       List<User> users = userService.listUsers();
-      for (User user : users) {
-         System.out.println(user.toString());
-
-      }
+      System.out.println(users);
       System.out.println(userService.getUserCar("car1", 1));
       context.close();
    }
