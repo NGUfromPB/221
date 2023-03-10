@@ -24,14 +24,15 @@ public class UserDaoImp implements UserDao {
 
    @Override
    public List<User> listUsers() {
-      TypedQuery<User> query=sessionFactory.getCurrentSession().createQuery("from User");
-      return query.getResultList();
+      List<User> ans = sessionFactory.getCurrentSession().createCriteria(User.class).list();
+      return ans;
    }
    @Override
    public User getUserCar(String model,int series) {
-      String hql = "from User user where user.car.model = :model and user.car.series = :series";
-      TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(hql);
-      query.setParameter("model", model).setParameter("series", series);
+      TypedQuery<User> query = sessionFactory.getCurrentSession().createQuery(
+              "from User user where user.car.model = :model and user.car.series = :series")
+              .setParameter("model", model)
+              .setParameter("series", series);
       return query.getSingleResult();
    }
 
